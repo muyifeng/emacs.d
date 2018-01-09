@@ -4,7 +4,7 @@
 ;;; Commentary:
 
 ;; Need install below packages from melpa:
-;; ido-completing-read+, smex, idomenu, ido-yes-or-no-mode
+;; company, company-flx, ido-completing-read+, smex, idomenu, ido-yes-or-no-mode, flx-ido
 
 
 ;;; Code:
@@ -12,14 +12,17 @@
 ;; ido
 (ido-mode 1)
 (ido-everywhere 1) ; use ido-mode everywhere, in buffers and for finding files
+(flx-ido-mode 1) ; enbale flx-ido
 (setq ido-enable-flex-matching t) ; flexibly match names via fuzzy matching
 (setq ido-use-filename-at-point nil)
-(setq ido-auto-merge-work-directories-length 0)
+(setq ido-auto-merge-work-directories-length -1)
 (setq ido-use-virtual-buffers t)
+;; disable ido faces to see flx highlights.
+;; (setq ido-use-faces nil)
 
 ;; ido-completing-read+
 ;; (use-package ido-completing-read+)
-(ido-ubiquitous-mode 1)
+;; (ido-ubiquitous-mode 1)
 
 ;; ido-yes-or-no-mode
 (ido-yes-or-no-mode 1)
@@ -38,16 +41,21 @@
 ;; http://www.reddit.com/r/emacs/comments/21a4p9/use_recentf_and_ido_together/cgbprem
 (add-hook 'ido-setup-hook (lambda () (define-key ido-completion-map [up] 'previous-history-element)))
 
-
-;(add-hook 'ido-setup-hook
-;  (lambda ()
-;    (define-key ido-completion-map (kbd "M-j") 'ido-prev-match)
-;    (define-key ido-completion-map (kbd "M-l") 'ido-next-match)))
-
-
 (when ido-mode
   (global-set-key [remap ido-magic-forward-char] 'ido-next-match)
   (global-set-key [remap ido-magic-backward-char] 'ido-prev-match))
+
+;; company-mode
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-selection-wrap-around t)
+
+(eval-after-load 'company
+  '(progn
+    (define-key company-active-map (kbd "M-k") 'company-select-next)
+    (define-key company-active-map (kbd "M-i") 'company-select-previous)))
+
+(with-eval-after-load 'company
+  (company-flx-mode +1))
 
 (provide 'init-ido)
 

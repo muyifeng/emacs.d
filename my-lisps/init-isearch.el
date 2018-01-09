@@ -4,7 +4,7 @@
 ;;; Commentary:
 
 ;; Need install below packages from melpa:
-;; anzu
+;; anzu, flx-isearch
 
 
 ;;; Code:
@@ -17,6 +17,10 @@
 
 ;; DEL during isearch should edit the search string, not jump back to the previous result
 (define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
+
+;; flx-isearch - fuzzy matching for isearch
+(global-set-key [remap isearch-forward] 'flx-isearch-forward)
+(global-set-key [remap isearch-backward] 'flx-isearch-backward)
 
 (provide 'init-isearch)
 

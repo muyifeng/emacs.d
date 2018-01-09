@@ -87,7 +87,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (flymake-ruby robe ace-jump-mode textmate yasnippet yaml-mode wgrep-ag web-mode vue-mode use-package spacemacs-theme spaceline-all-the-icons smex smartparens slim-mode scss-mode sass-mode rainbow-mode projectile-rails neotree markdown-mode less-css-mode json-mode js2-mode idomenu ido-yes-or-no icicles ibuffer-vc flycheck exec-path-from-shell ergoemacs-mode dracula-theme dockerfile-mode diminish company coffee-mode atom-one-dark-theme anzu ag))))
+    (company-flx flx-isearch flx-ido flymake-ruby robe ace-jump-mode textmate yasnippet yaml-mode wgrep-ag web-mode vue-mode use-package spacemacs-theme spaceline-all-the-icons smex smartparens slim-mode scss-mode sass-mode rainbow-mode projectile-rails neotree markdown-mode less-css-mode json-mode js2-mode idomenu ido-yes-or-no icicles ibuffer-vc flycheck exec-path-from-shell ergoemacs-mode dracula-theme dockerfile-mode diminish company coffee-mode atom-one-dark-theme anzu ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

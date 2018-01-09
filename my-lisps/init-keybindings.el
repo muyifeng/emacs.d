@@ -11,12 +11,6 @@
 (setq default-input-method "MacOSX")
 
 (global-set-key (kbd "M-0") 'delete-window)
-;; (global-set-key (kbd "M-;") 'isearch-forward)
-;; (global-set-key [remap comment-dwim] 'isearch-backward)
-;; (global-set-key [remap eval-expression] 'isearch-backward)
-;; (define-key isearch-mode-map (kbd "M-;") 'isearch-yank-kill)
-;; (define-key isearch-mode-map (kbd "M-;") 'isearch-repeat-forward)
-;; (define-key isearch-mode-map (kbd "M-:") 'isearch-repeat-backward)
 
 (global-set-key (kbd "C-SPC") 'set-mark-command)
 ;; (global-set-key (kbd "C-c C-c") 'comment-region)
@@ -36,10 +30,6 @@
 (global-set-key [remap ergoemacs-backward-open-bracket] 'beginning-of-buffer)
 ;; bind M-S-l to move to end of buffer
 (global-set-key [remap ergoemacs-forward-close-bracket] 'end-of-buffer)
-
-;; projectile
-(global-set-key [remap ergoemacs-call-keyword-completion] 'projectile-find-file)
-(global-set-key (kbd "M-p") 'projectile-ibuffer)
 
 (provide 'init-keybindings)
 

@@ -4,7 +4,7 @@
 ;;; Commentary:
 
 ;; Need install below packages from melpa:
-;; all-the-icons, neotree, smartparens, projectile, yasnippet, company-mode, paradox, undo-tree, ace-jump-mode
+;; all-the-icons, neotree, smartparens, projectile, yasnippet, paradox, undo-tree, ace-jump-mode
 
 
 ;;; Code:
@@ -21,6 +21,8 @@
 
 ;; projectile
 (projectile-global-mode)
+(global-set-key [remap ergoemacs-call-keyword-completion] 'projectile-find-file)
+(global-set-key (kbd "C-b") 'projectile-ibuffer)
 
 ;; yasnippet
 (setq yas-snippet-dirs
@@ -30,15 +32,6 @@
     "~/.emacs.d/yasnippet-snippets"         ;; the default collection
     ))
 (yas-global-mode 1)
-
-;; company-mode
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-selection-wrap-around t)
-
-(eval-after-load 'company
-  '(progn
-    (define-key company-active-map (kbd "M-k") 'company-select-next)
-    (define-key company-active-map (kbd "M-i") 'company-select-previous)))
 
 ;; undo-tree-mode
 (global-undo-tree-mode 1)
