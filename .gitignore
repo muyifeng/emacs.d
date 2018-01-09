@@ -9,3 +9,14 @@
 
 # Undo-tree save-files
 *.~undo-tree
+
+.DS_Store
+/*smex-items
+/eshell
+/ido.last
+/projectile-bookmarks.eld
+/recentf
+/tramp
+/var
+/yasnippet-snippets
+/custom.el
