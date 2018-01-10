@@ -4,7 +4,7 @@
 ;;; Commentary:
 
 ;; Need install below packages from melpa:
-;; company, company-flx, ido-completing-read+, smex, idomenu, ido-yes-or-no-mode, flx-ido
+;; ido-completing-read+, smex, idomenu, ido-yes-or-no-mode, flx-ido
 
 
 ;;; Code:
@@ -44,18 +44,6 @@
 (when ido-mode
   (global-set-key [remap ido-magic-forward-char] 'ido-next-match)
   (global-set-key [remap ido-magic-backward-char] 'ido-prev-match))
-
-;; company-mode
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-selection-wrap-around t)
-
-(eval-after-load 'company
-  '(progn
-    (define-key company-active-map (kbd "M-k") 'company-select-next)
-    (define-key company-active-map (kbd "M-i") 'company-select-previous)))
-
-(with-eval-after-load 'company
-  (company-flx-mode +1))
 
 (provide 'init-ido)
 

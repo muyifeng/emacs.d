@@ -11,14 +11,15 @@
 
 (textmate-mode)
 
-;; set keys for textmate mode
+;; keybindings
 ;; (global-set-key (kbd "M-I") 'textmate-goto-symbol)
 (global-set-key (kbd "M-[") 'textmate-shift-left)
 (global-set-key (kbd "M-]") 'textmate-shift-right)
 (global-set-key (kbd "M-<return>") 'textmate-next-line)
 
-;; resolve conflicts
-(global-set-key (kbd "M-i") 'previous-line)
+;; resolve keybinding conflicts
+(global-set-key (kbd "C-p") 'textmate-goto-symbol)
+(global-set-key [remap pr-interface] 'textmate-goto-symbol)
 
 (provide 'init-textmate)
 
