@@ -10,7 +10,7 @@
 ;; (setq mac-option-modifier 'none)
 (setq default-input-method "MacOSX")
 
-(global-set-key (kbd "M-i") 'previous-line)
+; (global-set-key (kbd "M-i") 'previous-line)
 (global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-=") 'text-scale-increase)
 (global-set-key (kbd "M--") 'text-scale-decrease)

@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "ergoemacs-component" "ergoemacs-component.el"
-;;;;;;  (23123 34696 235712 818000))
+;;;;;;  (23159 56946 441701 786000))
 ;;; Generated autoloads from ergoemacs-component.el
 
 (autoload 'ergoemacs-ignore-prev-global "ergoemacs-component" "\
@@ -15,7 +15,7 @@ Ignore previously defined global keys.
 ;;;***
 
 ;;;### (autoloads nil "ergoemacs-functions" "ergoemacs-functions.el"
-;;;;;;  (23123 34696 254865 897000))
+;;;;;;  (23159 56946 465442 202000))
 ;;; Generated autoloads from ergoemacs-functions.el
 
 (autoload 'ergoemacs-paste-cycle "ergoemacs-functions" "\
@@ -64,8 +64,8 @@ Guillemet -> quote, degree -> @, s-zed -> ss, upside-down ?! -> ?!.
 
 ;;;***
 
-;;;### (autoloads nil "ergoemacs-lib" "ergoemacs-lib.el" (23123 34696
-;;;;;;  238663 940000))
+;;;### (autoloads nil "ergoemacs-lib" "ergoemacs-lib.el" (23159 56946
+;;;;;;  446409 125000))
 ;;; Generated autoloads from ergoemacs-lib.el
 
 (autoload 'ergoemacs-set "ergoemacs-lib" "\
@@ -103,8 +103,8 @@ Generates autohotkey for all layouts and themes
 
 ;;;***
 
-;;;### (autoloads nil "ergoemacs-macros" "ergoemacs-macros.el" (23123
-;;;;;;  34696 246179 865000))
+;;;### (autoloads nil "ergoemacs-macros" "ergoemacs-macros.el" (23159
+;;;;;;  56946 454801 236000))
 ;;; Generated autoloads from ergoemacs-macros.el
 
 (autoload 'ergoemacs-keymapp "ergoemacs-macros" "\
@@ -489,8 +489,8 @@ When :type is :replace that replaces a function (like `define-key')
 
 ;;;***
 
-;;;### (autoloads nil "ergoemacs-mode" "ergoemacs-mode.el" (23123
-;;;;;;  34696 259599 371000))
+;;;### (autoloads nil "ergoemacs-mode" "ergoemacs-mode.el" (23159
+;;;;;;  56946 470095 317000))
 ;;; Generated autoloads from ergoemacs-mode.el
 
 (defvar ergoemacs-mode nil "\
@@ -530,8 +530,8 @@ SYMBOL is the symbol to set, NEW-VALUE is it's value.
 
 ;;;***
 
-;;;### (autoloads nil "ergoemacs-test" "ergoemacs-test.el" (23123
-;;;;;;  34696 261907 955000))
+;;;### (autoloads nil "ergoemacs-test" "ergoemacs-test.el" (23159
+;;;;;;  56946 472250 605000))
 ;;; Generated autoloads from ergoemacs-test.el
 
 (autoload 'ergoemacs-test "ergoemacs-test" "\
@@ -542,7 +542,7 @@ Test ergoemacs issues.
 ;;;***
 
 ;;;### (autoloads nil "ergoemacs-theme-engine" "ergoemacs-theme-engine.el"
-;;;;;;  (23123 34696 237144 552000))
+;;;;;;  (23159 56946 444176 900000))
 ;;; Generated autoloads from ergoemacs-theme-engine.el
 
 (autoload 'ergoemacs-theme-set-version "ergoemacs-theme-engine" "\
@@ -581,7 +581,7 @@ Create bash ~/.inputrc for use with bash.
 ;;;;;;  "ergoemacs-debug.el" "ergoemacs-key-description.el" "ergoemacs-layouts.el"
 ;;;;;;  "ergoemacs-map-properties.el" "ergoemacs-map.el" "ergoemacs-mapkeymap.el"
 ;;;;;;  "ergoemacs-mode-pkg.el" "ergoemacs-score.el" "ergoemacs-themes.el"
-;;;;;;  "ergoemacs-translate.el") (23123 34696 264075 290000))
+;;;;;;  "ergoemacs-translate.el") (23159 56946 474601 74000))
 
 ;;;***
 

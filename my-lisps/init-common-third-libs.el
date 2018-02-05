@@ -4,7 +4,7 @@
 ;;; Commentary:
 
 ;; Need install below packages from melpa:
-;; all-the-icons, neotree, smartparens, projectile, yasnippet, paradox, undo-tree, ace-jump-mode
+;; all-the-icons, neotree, smartparens, projectile, yasnippet, paradox, undo-tree, avy
 
 
 ;;; Code:
@@ -41,29 +41,9 @@
 (defalias 'redo 'undo-tree-redo)
 (global-set-key (kbd "C-S-z") 'redo)
 
-
-;; ace-jump-mode
-(autoload
-  'ace-jump-mode
-  "ace-jump-mode"
-  "Emacs quick move minor mode"
-  t)
-;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
-
-
-;;
-;; enable a more powerful jump back function from ace jump mode
-;;
-(autoload
-  'ace-jump-mode-pop-mark
-  "ace-jump-mode"
-  "Ace jump back:-)"
-  t)
-(eval-after-load "ace-jump-mode"
-  '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+;; avy - for jumping to visible text using a char-based decision tree.
+;; (global-set-key (kbd "C-;") 'avy-goto-char)
+(global-set-key (kbd "C-;") 'ivy-avy) ;; use ivy-avy instead of avy-goto-char since we are using ivy
 
 (provide 'init-common-third-libs)
 
