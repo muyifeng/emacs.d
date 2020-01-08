@@ -4,7 +4,7 @@
 ;;; Commentary:
 
 ;; Need install below packages from melpa:
-;; web-mode, js2-mode, coffee-mode, slim-mode, sass-mode, scss-mode, less-css-mode, rainbow-mode, vue-mode, vue-html-mode, yaml-mode
+;; web-mode, js2-mode, coffee-mode, slim-mode, sass-mode, scss-mode, less-css-mode, rainbow-mode, vue-mode, vue-html-mode, yaml-mode, origami-mode, tide
 
 
 ;;; Code:
@@ -24,6 +24,9 @@
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; ;; typescript-mode
+;; (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
+
 
 ;; HTML offset indentation
 (setq web-mode-markup-indent-offset 2)
@@ -69,6 +72,49 @@
 (add-hook 'scss-mode-hook 'rainbow-mode)
 (add-hook 'less-css-mode-hook 'rainbow-mode)
 ;; (add-hook 'html-mode-hook 'rainbow-mode)
+
+
+;; origami - text folding
+(global-origami-mode t)
+(global-set-key (kbd "<C-S-return>") 'origami-toggle-node)
+(global-set-key (kbd "<C-M-S-return>") 'origami-toggle-all-nodes)
+
+
+;; tide TypeScript interactive
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; for TSX
+;; (require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+
+(setq typescript-indent-level 2)
+
+;; enable typescript-tslint checker
+(flycheck-add-mode 'typescript-tslint 'web-mode)
+
+
 
 (provide 'init-web-development)
 

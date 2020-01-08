@@ -17,52 +17,24 @@
 ;; Change emacs appearance immediately
 ;;----------------------------------------------------------------------------
 (setq frame-title-format "%b - ericyang@emacs")         ; Use buffer name as frame title
-(set-language-environment "UTF-8")                      ; UTF-8 as default encoding
+;; (set-language-environment "UTF-8")                      ; UTF-8 as default encoding
 (tool-bar-mode -1)                                      ; No toolbar
 (menu-bar-mode -1)                                      ; No menubar
 (scroll-bar-mode -1)                                    ; No scrollbar
 (global-linum-mode t)                                   ; Show line numbers on buffers
 
 ;; set line height
-(setq-default line-spacing 3)
+;; (setq-default line-spacing 0.25)
+;; (setq-default line-height 1.25)
+;; (add-text-properties (point-min) (point-max)
+                     ;; '(line-spacing 0.25 line-height 1.25))
 
 ;; set a default font
-(when (member "Source Code Pro" (font-family-list))
-  (set-face-attribute 'default nil :font "Source Code Pro")
-  (add-to-list 'initial-frame-alist '(font . "Source Code Pro 12"))
-  (add-to-list 'default-frame-alist '(font . "Source Code Pro 12")))
-
-(when (window-system)
-  (set-default-font "Fira Code"))
-(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-               (36 . ".\\(?:>\\)")
-               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-               (48 . ".\\(?:x[a-zA-Z]\\)")
-               (58 . ".\\(?:::\\|[:=]\\)")
-               (59 . ".\\(?:;;\\|;\\)")
-               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-               (91 . ".\\(?:]\\)")
-               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-               (94 . ".\\(?:=\\)")
-               (119 . ".\\(?:ww\\)")
-               (123 . ".\\(?:-\\)")
-               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-               )
-             ))
-  (dolist (char-regexp alist)
-    (set-char-table-range composition-function-table (car char-regexp)
-                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+(when (member "Monoca" (font-family-list))
+  (set-face-attribute 'default nil :font "Monoca 15")
+  (add-to-list 'initial-frame-alist '(font . "Monoca 15"))
+  (add-to-list 'default-frame-alist '(font . "Monoca 15")))
+  ;; (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-15")))
 
 
 ;;----------------------------------------------------------------------------
@@ -95,6 +67,11 @@
 ;; (require 'init-ibuffer)
 ;; (require 'init-ido)
 ;; (require 'init-isearch)
+
+;; Ergoemacs need to be loaded after customize, other wise there may be some problems.
+(require 'init-ergoemacs)
+
+
 (require 'init-ivy-and-swiper) ;; use ivy and swiper instead of ido and isearch
 (require 'init-auto-completion)
 (require 'init-misc)
@@ -104,9 +81,9 @@
 (require 'init-ruby-development)
 (require 'init-web-development)
 
-
-;; Ergoemacs need to be loaded after customize, other wise there may be some problems.
-(require 'init-ergoemacs)
+;; Dired
+(require 'dired-details+)
+(setq-default dired-details-hidden-string "--- ")
 
 
 ;;----------------------------------------------------------------------------
@@ -124,7 +101,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (counsel-projectile typescript-mode textmate ergoemacs-mode idomenu imenu-anywhere yasnippet yaml-mode wgrep-ag web-mode vue-mode use-package spacemacs-theme spaceline-all-the-icons smex smartparens slim-mode scss-mode sass-mode robe rainbow-mode projectile-rails neotree markdown-mode less-css-mode json-mode js2-mode ido-yes-or-no icicles ibuffer-vc flymake-ruby flycheck flx-isearch flx-ido exec-path-from-shell dracula-theme dockerfile-mode diminish counsel company-flx coffee-mode avy atom-one-dark-theme anzu ag))))
+    (all-the-icons-dired all-the-icons-ivy doom-themes material-theme tide origami counsel-projectile textmate ergoemacs-mode imenu-anywhere yasnippet yaml-mode wgrep-ag web-mode vue-mode use-package spacemacs-theme spaceline-all-the-icons smex smartparens slim-mode scss-mode sass-mode robe rainbow-mode projectile-rails neotree markdown-mode less-css-mode json-mode js2-mode icicles ibuffer-vc flymake-ruby flycheck exec-path-from-shell dracula-theme dockerfile-mode diminish counsel company-flx coffee-mode avy atom-one-dark-theme anzu ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

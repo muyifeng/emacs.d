@@ -13,7 +13,17 @@
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode)
-  :config (flycheck-add-mode 'javascript-eslint 'js-mode)) ;; use eslint with web-mode for jsx files
+  :config
+  (flycheck-add-mode 'javascript-eslint 'js-mode)
+  ) ;; use eslint with web-mode for jsx files
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
+
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
 
 ;; use local eslint from node_modules before global
 ;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable

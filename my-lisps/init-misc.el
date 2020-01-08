@@ -9,8 +9,9 @@
 ;; General userinterface and appearance
 (global-hl-line-mode 1)                       ; Highlight cursor line
 (global-font-lock-mode 1)                      ; turn on syntax coloring
-;;(setq-default line-spacing 0.5)
-;;(setq-default line-height 1)
+
+(setq-default cursor-type 'bar)
+
 (setq inhibit-startup-message t)               ; No message at startup
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message t)
