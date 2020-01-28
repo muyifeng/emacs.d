@@ -10,8 +10,10 @@
 # Undo-tree save-files
 *.~undo-tree
 
+*.plist
 .DS_Store
 /*smex-items
+/elpa
 /eshell
 /ido.last
 /projectile-bookmarks.eld
