@@ -10,9 +10,12 @@
 # Undo-tree save-files
 *.~undo-tree
 
+network-security.data
+url
+elpa
+
 *.plist
 .DS_Store
-elpa
 /*smex-items
 /eshell
 /ido.last
