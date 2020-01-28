@@ -12,8 +12,8 @@
 
 *.plist
 .DS_Store
+elpa
 /*smex-items
-/elpa
 /eshell
 /ido.last
 /projectile-bookmarks.eld
