@@ -1,26 +1,28 @@
-;;; package --- init-auto-completion
+;;; package name --- init-auto-completion
 
-
-;;; Commentary:
-
-;; Need install below packages from melpa:
-;; company, company-flx
-
-
-;;; Code:
+;; Packages installed (from melpa):
+;; company, company-anaconda
 
 ;; company-mode
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-selection-wrap-around t)
+(use-package company
+  :ensure t
+  :bind (:map company-active-map
+         ("M-k" . company-select-next)
+         ("M-i" . company-select-previous))
+  :init
+  (global-company-mode)
+  :config
+  (setq company-selection-wrap-around t)
+  ;; Add company-anaconda to allowed company-mode backends list
+  ;; (add-to-list 'company-backends 'company-anaconda)
+  )
 
-(eval-after-load 'company
-  '(progn
-    (define-key company-active-map (kbd "M-k") 'company-select-next)
-    (define-key company-active-map (kbd "M-i") 'company-select-previous)))
-
-(with-eval-after-load 'company
-  (company-flx-mode +1))
+;; Enable anaconda-mode for python-mode
+;; (use-package company-anaconda
+;;   :ensure t
+;;   :after company
+;;   :init
+;;   (add-hook 'python-mode-hook 'anaconda-mode)
+;;   )
 
 (provide 'init-auto-completion)
-
-;;; init-auto-completion ends here
