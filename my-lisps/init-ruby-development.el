@@ -1,7 +1,11 @@
-;;; package name --- init-ruby-development
+;;; package --- init-ruby-development
+
+;;; Commentary:
 
 ;; Packages installed (from melpa):
 ;; projectile-rails, robe, flymake-ruby (may use flycheck-ruby instead if there is one)
+
+;;; Code:
 
 ;; projectile-rails - project management
 (use-package projectile-rails
@@ -10,11 +14,11 @@
   :init
   (projectile-rails-global-mode)
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
+  ;; :config (projectile-rails-global-mode))
 
 ;; robe - code navigation and documentation lookup
 (use-package robe
   :ensure t
-  :defer 2
   :after company
   :init
   (add-hook 'ruby-mode-hook 'robe-mode)
@@ -27,7 +31,9 @@
 ;; flymake-ruby - syntax check
 (use-package flymake-ruby
   :ensure t
-  :defer 2
+  :defer t
   :init (add-hook 'ruby-mode-hook 'flymake-ruby-load))
 
 (provide 'init-ruby-development)
+
+;;; init-ruby-development.el ends here

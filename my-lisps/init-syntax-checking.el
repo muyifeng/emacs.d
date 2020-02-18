@@ -1,14 +1,17 @@
-;;; package name --- init-syntax-checking
+;;; package --- init-syntax-checking
+
+;;; Commentary:
 
 ;; Packages installed (from melpa):
 ;; flycheck
 
+;;; Code:
+
 ;; flycheck: http://www.flycheck.org
 ;; Dep pylint, tidy, csslint, eslint
 (use-package flycheck
-  :ensure t
+  :defer t
   :init (global-flycheck-mode)
-  :defer 2
   :config
   (setq-default flycheck-global-modes '(not org-mode))
   ;; disable json-jsonlist checking for json files
@@ -31,3 +34,5 @@
 ;; (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
 (provide 'init-syntax-checking)
+
+;;; init-syntax-checking.el ends here

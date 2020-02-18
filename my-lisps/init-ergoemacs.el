@@ -1,10 +1,14 @@
-;;; package name --- init-ergoemacs
+;;; package --- init-ergoemacs
+
+;;; Commentary:
 
 ;; Packages installed (from melpa):
 ;; ergoemacs-mode
 
+;;; Code:
+
+;; ergoemacs-mode
 (use-package ergoemacs-mode
-  :ensure t
   :bind (
          ;; bind M-S-j to move to beginning of buffer
          ("M-S-j" . beginning-of-buffer)
@@ -20,3 +24,5 @@
   (global-set-key (kbd "M-/") 'comment-or-uncomment-region-or-line))
 
 (provide 'init-ergoemacs)
+
+;;; init-ergoemacs.el ends here

@@ -1,4 +1,8 @@
-;;; package name --- init-general-settings
+;;; package --- init-general-settings
+
+;;; Commentary:
+
+;;; Code:
 
 ;; Frame title, menubar and toolbar
 (setq frame-title-format "%b - ericyang@emacs")         ;; Use buffer name as frame title
@@ -9,7 +13,12 @@
 (global-linum-mode t)                                   ;; Show line numbers on buffers
 
 ;; Set a default font
-(when (member "Hack" (font-family-list)) (set-frame-font "Hack-14" t t))
+(when (member "Monaco" (font-family-list)) (set-frame-font "Monaco-14" nil t))
+;; (set-face-attribute 'default nil :family "Menlo" :height 120)
+;; (when (member "Monoca" (font-family-list))
+;;   (set-face-attribute 'default nil :font "Monoca 15")
+;;   (add-to-list 'initial-frame-alist '(font . "Monoca 15"))
+;;   (add-to-list 'default-frame-alist '(font . "Monoca 15")))
 
 ;; General userinterface and appearance
 (global-hl-line-mode 1)                        ;; Highlight cursor line
@@ -37,10 +46,11 @@
 (setq auto-save-default nil)
 ;; (setq auto-save-timeout 60)                    ;; Autosave every minute
 (setq make-backup-files nil)                   ;; Prevent Emacs from making backup files
-(setq ffap-newfile-prompt t)
+;; (setq ffap-newfile-prompt t)
 (recentf-mode 1)                               ;; keep a list of recently opened files, call "recentf-open-files"
-(setq recentf-max-saved-items 1000
-  recentf-exclude '("/tmp/" "/ssh:"))
+;; (defvar recentf-max-saved-items)
+;; (setq recentf-max-saved-items 50
+;;   recentf-exclude '("/tmp/" "/ssh:"))
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; Delete trailing whitespace on save
 
 ;; Tabs, lines and parenthesis
@@ -56,19 +66,28 @@
 
 ;; Whitespace
 ;; automatically clean up bad whitespace
+(defvar whitespace-action)
 (setq whitespace-action '(auto-cleanup))
 ;; only show bad whitespace
+(defvar whitespace-style)
 (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
 
 ;; Scroll
-;; (mouse-wheel-mode t)                           ;; Mouse-wheel enabled
-(setq scroll-preserve-screen-position t)       ;; Scroll without moving cursor
+(setq redisplay-dont-pause t
+      scroll-margin 1
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
+(setq mouse-wheel-follow-mouse 't)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(mouse-wheel-mode t)                           ;; Mouse-wheel enabled
+;; (setq scroll-preserve-screen-position t)       ;; Scroll without moving cursor
 ;; (setq scroll-step 1)                           ;; Line by line scrolling
 
 ;; Miscellaneous
-(setq auto-fill-mode t)                        ;; Turn on Auto Fill mode automatically in all modes
-(setq default-fill-column 82)
-(setq default-major-mode 'text-mode)           ;; Text-mode is default mode
+(defvar auto-fill-mode)
+(setq-default auto-fill-function 'do-auto-fill)   ;; Turn on Auto Fill mode automatically in all modes
+(setq-default major-mode 'text-mode)           ;; Text-mode is default mode
 ;; (setq default-abbrev-mode t)
 
 ;; Get rid of the “yes or no” prompt and replace it with “y or n”
@@ -98,3 +117,5 @@
 ;; (global-set-key (kbd "C-c C-u") 'uncomment-region)
 
 (provide 'init-general-settings)
+
+;;; init-general-settings.el ends here

@@ -1,11 +1,17 @@
-;;; package name --- init-python-development
+;;; package --- init-python-development
+
+;;; Commentary:
 
 ;; Packages installed (from melpa):
 ;; elpy
 
-(use-package elpy
-  :ensure t
-  :init
-  (elpy-enable))
+;;; Code:
 
-(provide 'init-python-development)
+;; (use-package elpy
+;;   :ensure t
+;;   :config
+;;   (elpy-enable))
+
+;; (provide 'init-python-development)
+
+;;; init-python-development.el ends here
