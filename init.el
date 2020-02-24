@@ -48,12 +48,12 @@
 (require 'init-themes)
 (require 'init-appearance)
 (require 'init-exec-path)
-;; (require 'init-ergoemacs)
+(require 'init-ergoemacs)
 (require 'init-common-editing)
 (require 'init-project-and-navigation) ;; must comes after command-execution-and-search as it has dependency on ivy
 (require 'init-command-execution-and-search) ;; use ivy and swiper instead of ido and isearch
 (require 'init-auto-completion)
-;; (require 'init-syntax-checking)
+(require 'init-syntax-checking)
 ;; (require 'init-ruby-development)
 ;; (require 'init-python-development)
 (require 'init-web-development)
@@ -68,7 +68,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (tide robe spaceline spaceline-all-the-icons flx-ido ergoemacs-mode all-the-icons-dired all-the-icons-ivy doom-themes material-theme origami counsel-projectile imenu-anywhere neotree markdown-mode less-css-mode json-mode js2-mode icicles ibuffer-vc flymake-ruby flycheck exec-path-from-shell dracula-theme dockerfile-mode diminish counsel company-flx coffee-mode avy atom-one-dark-theme anzu ag use-package yasnippet textmate smartparens))))
+    (tide robe flx-ido all-the-icons-dired all-the-icons-ivy doom-themes material-theme origami counsel-projectile imenu-anywhere neotree markdown-mode less-css-mode json-mode js2-mode icicles ibuffer-vc flymake-ruby flycheck exec-path-from-shell dracula-theme dockerfile-mode diminish counsel company-flx coffee-mode avy atom-one-dark-theme anzu ag use-package yasnippet textmate smartparens))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -3,47 +3,54 @@
 ;;; Commentary:
 
 ;; Packages installed (from melpa):
-;; all-the-icons, all-the-icons-dired, neotree, spaceline, spaceline-all-the-icons, dashboard
+;; all-the-icons, all-the-icons-dired, neotree, doom-modeline, dashboard, nyan-mode, beacon, smooth-scrolling
 
 ;;; Code:
+
+;; nyan-mode
+(use-package nyan-mode
+  :init
+  ;; (setq mode-line-format (list '(:eval (list (nyan-create)))))
+  (setq nyan-animate-nyancat t)
+  (nyan-mode 1)
+  )
+
+;; beacon
+(use-package beacon
+  :init (beacon-mode 1))
+
+;; smooth-scrolling
+(use-package smooth-scrolling
+  :init (smooth-scrolling-mode 1))
 
 ;; all-the-icons
 ;; Need to run M-x all-the-icons-install-fonts after all-the-icons being installed
 (use-package all-the-icons)
 
-;; spaceline
-(use-package spaceline
-  :init (require 'spaceline-config)
-  :config (spaceline-spacemacs-theme))
-
-;; all-the-icons for line-mode
-(use-package spaceline-all-the-icons
-  :after (spaceline all-the-icons)
+;; doom-modeline
+(use-package doom-modeline
+  :after (all-the-icons)
   :init
-  (spaceline-all-the-icons-theme)
-  ;; :config
-  ;; (spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
-  ;; (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
-  ;; (spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream
-  ;; (spaceline-all-the-icons--setup-paradox)         ;; Enable Paradox mode line
-  ;; (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line
-  ;; Some segments are disabled by default you can turn them on by calling the following
-  ;; (spaceline-toggle-all-the-icons-bookmark-on)
-  ;; (spaceline-toggle-all-the-icons-dedicated-on)
-  ;; (spaceline-toggle-all-the-icons-fullscreen-on)
-  (spaceline-toggle-all-the-icons-buffer-position-off)
-  ;; (spaceline-toggle-all-the-icons-narrowed-on)
-  ;; (setq spaceline-all-the-icons-icon-set-modified 'circle)
-  ;; (setq spaceline-all-the-icons-separator-type 'arrow)
-  ;; (set-face-attribute 'mode-line nil :foreground "gray" :background "#282c34" :box nil)
-  ;; (set-face-attribute 'mode-line-inactive nil :foreground "SkyBlue4" :background "#282c34" :box nil)
-  ;; (set-face-attribute 'powerline-active0 nil :foreground "SkyBlue1" :background "#282c34")
-  ;; (set-face-attribute 'powerline-active1 nil :foreground "SkyBlue1" :background "#282c34")
-  ;; (set-face-attribute 'powerline-active2 nil :foreground "white" :background "#282c34")
-  ;; (set-face-attribute 'powerline-inactive0 nil :foreground "SkyBlue4" :background "#282c34")
-  ;; (set-face-attribute 'powerline-inactive1 nil :foreground "SkyBlue4" :background "#282c34")
-  ;; (set-face-attribute 'powerline-inactive2 nil :foreground "SkyBlue4" :background "#282c34")
-  ;; (set-face-attribute 'spaceline-highlight-face nil :foreground "SkyBlue1" :background "#282c34")
+  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (setq doom-modeline-icon (display-graphic-p))
+  (setq doom-modeline-major-mode-icon t)
+  (setq doom-modeline-major-mode-color-icon t)
+  (setq doom-modeline-buffer-state-icon t)
+  (setq doom-modeline-buffer-modification-icon t)
+  (setq doom-modeline-unicode-fallback nil)
+  ;; (setq doom-modeline-minor-modes nil)
+  (setq doom-modeline-indent-info t)
+  (setq doom-modeline-persp-name t)
+  (setq doom-modeline-lsp t)
+  (setq doom-modeline-env-version t)
+  ;; (setq doom-modeline-env-enable-python t)
+  ;; (setq doom-modeline-env-enable-ruby t)
+  ;; (setq doom-modeline-env-enable-go t)
+  ;; (setq doom-modeline-env-python-executable "python") ; or `python-shell-interpreter'
+  ;; (setq doom-modeline-env-ruby-executable "ruby")
+  ;; (setq doom-modeline-env-go-executable "go")
+  (setq doom-modeline-env-load-string "...")
+  (doom-modeline-mode 1)
   )
 
 ;; dir tree
@@ -60,7 +67,7 @@
 
 ;; dashboard
 (use-package dashboard
-  :after (all-the-icons spaceline-all-the-icons)
+  :after (all-the-icons)
   :init
   (setq dashboard-startup-banner 'logo)
   (setq dashboard-set-heading-icons nil)

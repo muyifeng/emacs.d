@@ -19,8 +19,8 @@
   :init
   (setq ergoemacs-theme nil)
   (setq ergoemacs-keyboard-layout "us")
-  (ergoemacs-mode 1)
   :config
+  (ergoemacs-mode 1)
   (global-set-key (kbd "M-/") 'comment-or-uncomment-region-or-line))
 
 (provide 'init-ergoemacs)

@@ -11,6 +11,7 @@
 (menu-bar-mode -1)                                      ;; No menubar
 (scroll-bar-mode -1)                                    ;; No scrollbar
 (global-linum-mode t)                                   ;; Show line numbers on buffers
+(display-battery-mode 1)                                ;; Show battery percentage
 
 ;; Set a default font
 (when (member "Monaco" (font-family-list)) (set-frame-font "Monaco-14" nil t))
@@ -73,14 +74,14 @@
 (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
 
 ;; Scroll
-(setq redisplay-dont-pause t
-      scroll-margin 1
-      scroll-step 1
-      scroll-conservatively 10000
-      scroll-preserve-screen-position 1)
-(setq mouse-wheel-follow-mouse 't)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-(mouse-wheel-mode t)                           ;; Mouse-wheel enabled
+;; (setq redisplay-dont-pause t
+;;       scroll-margin 1
+;;       scroll-step 1
+;;       scroll-conservatively 10000
+;;       scroll-preserve-screen-position 1)
+;; (setq mouse-wheel-follow-mouse t)
+;; (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+;; (mouse-wheel-mode t)                           ;; Mouse-wheel enabled
 ;; (setq scroll-preserve-screen-position t)       ;; Scroll without moving cursor
 ;; (setq scroll-step 1)                           ;; Line by line scrolling
 
