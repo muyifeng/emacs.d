@@ -10,7 +10,8 @@
 (tool-bar-mode -1)                                      ;; No toolbar
 (menu-bar-mode -1)                                      ;; No menubar
 (scroll-bar-mode -1)                                    ;; No scrollbar
-(global-linum-mode t)                                   ;; Show line numbers on buffers
+;; (global-linum-mode t)                                   ;; Show line numbers on buffers
+;; (global-display-line-numbers-mode t)                      ;; Show line numbers on buffers
 (display-battery-mode 1)                                ;; Show battery percentage
 
 ;; Set a default font

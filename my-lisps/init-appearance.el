@@ -3,25 +3,37 @@
 ;;; Commentary:
 
 ;; Packages installed (from melpa):
-;; all-the-icons, all-the-icons-dired, neotree, doom-modeline, dashboard, nyan-mode, beacon, smooth-scrolling
+;; all-the-icons, all-the-icons-dired, neotree, doom-modeline, dashboard, nyan-mode, beacon, nlinum
 
 ;;; Code:
 
-;; nyan-mode
+(set-face-background 'vertical-border "#424853")
+(set-face-foreground 'vertical-border (face-background 'vertical-border))
+
+;; nlinum: show line numbers
+(use-package nlinum
+  :defer t
+  :init
+  (setq nlinum-widen t)
+  (setq nlinum-highlight-current-line t)
+  (setq nlinum--width 4)
+  ;; (global-nlinum-mode)
+  (add-hook 'prog-mode-hook 'nlinum-mode)
+  )
+
+;; nyan-mode: a cute cat with rainbow tail in mode line, indicating the position of the content
 (use-package nyan-mode
+  :defer t
   :init
   ;; (setq mode-line-format (list '(:eval (list (nyan-create)))))
   (setq nyan-animate-nyancat t)
   (nyan-mode 1)
   )
 
-;; beacon
+;; beacon: highlight cursor line
 (use-package beacon
+  :defer t
   :init (beacon-mode 1))
-
-;; smooth-scrolling
-(use-package smooth-scrolling
-  :init (smooth-scrolling-mode 1))
 
 ;; all-the-icons
 ;; Need to run M-x all-the-icons-install-fonts after all-the-icons being installed

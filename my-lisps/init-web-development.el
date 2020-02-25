@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;; json-mode
+(use-package json-mode
+  :defer t)
+
 ;; javascript indentation
 (defvar js-indent-level)
 (setq js-indent-level 2)
@@ -36,8 +40,7 @@
 
 ;; sass-mode
 (use-package sass-mode
-  :defer t
-  )
+  :defer t)
 
 ;; scss-mode
 ;; (defun scss-mode-custom ()
@@ -78,8 +81,7 @@
 
 ;; yaml-mode
 (use-package yaml-mode
-  :defer t
-  )
+  :defer t)
 
 ;; origami - text folding
 (use-package origami

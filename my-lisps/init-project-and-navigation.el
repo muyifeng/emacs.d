@@ -11,7 +11,7 @@
 ;; projectile
 (use-package projectile
   :bind (("C-b" . projectile-ibuffer)
-         ([remap ergoemacs-call-keyword-completion] . projectile-find-file)
+         ([remap recenter-top-bottom] . projectile-find-file)
          :map projectile-mode-map
          ("s-p" . projectile-command-map)
          :map projectile-mode-map
@@ -23,8 +23,8 @@
 
 ;; counsel-projectile: provides further ivy integration into projectile
 (use-package counsel-projectile
-  :bind (("M-t" . counsel-projectile-find-file)
-         ([remap ergoemacs-call-keyword-completion] . counsel-projectile-find-file))
+  :bind (("M-p" . counsel-projectile-find-file)
+         ([remap recenter-top-bottom] . counsel-projectile-find-file))
   :init (counsel-projectile-mode 1))
 
 (provide 'init-project-and-navigation)

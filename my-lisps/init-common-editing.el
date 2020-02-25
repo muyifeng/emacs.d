@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;; Packages installed (from melpa):
-;; textmate, smartparens, yasnippet, undo-tree
+;; textmate, smartparens, yasnippet, undo-tree, smooth-scrolling
 
 ;;; Code:
 
@@ -40,6 +40,11 @@
   :init
   (defalias 'redo 'undo-tree-redo)
   (global-undo-tree-mode t))
+
+
+;; smooth-scrolling
+(use-package smooth-scrolling
+  :init (smooth-scrolling-mode 1))
 
 (provide 'init-common-editing)
 
