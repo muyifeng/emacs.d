@@ -71,13 +71,7 @@
 ;; rainbow-mode
 (use-package rainbow-mode
   :defer t
-  :init
-  (add-hook 'css-mode-hook 'rainbow-mode)
-  (add-hook 'sass-mode-hook 'rainbow-mode)
-  (add-hook 'scss-mode-hook 'rainbow-mode)
-  (add-hook 'less-css-mode-hook 'rainbow-mode)
-  ;; (add-hook 'html-mode-hook 'rainbow-mode)
-  )
+  :hook ((css-mode sass-mode scss-mode less-css-mode html-mode) . rainbow-mode))
 
 ;; yaml-mode
 (use-package yaml-mode
@@ -133,11 +127,11 @@
   ;; Script offset indentation (for JavaScript, Java, PHP, etc.)
   (setq web-mode-code-indent-offset 2)
   ;; enable typescript-tslint checker
+  (flycheck-add-mode 'typescript-tslint 'web-mode)
   (add-hook 'web-mode-hook
              (lambda ()
               (when (string-equal "tsx" (file-name-extension buffer-file-name))
                (setup-tide-mode))))
-  (flycheck-add-mode 'typescript-tslint 'web-mode)
 )
 
 (provide 'init-web-development)

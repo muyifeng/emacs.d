@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;; Packages installed (from melpa):
-;; all-the-icons, all-the-icons-dired, neotree, doom-modeline, dashboard, nyan-mode, beacon, nlinum
+;; all-the-icons, all-the-icons-dired, neotree, doom-modeline, dashboard, nyan-mode, nlinum
 
 ;;; Code:
 
@@ -13,13 +13,11 @@
 ;; nlinum: show line numbers
 (use-package nlinum
   :defer t
+  :hook ((prog-mode text-mode) . nlinum-mode)
   :init
   (setq nlinum-widen t)
   (setq nlinum-highlight-current-line t)
-  (setq nlinum--width 4)
-  ;; (global-nlinum-mode)
-  (add-hook 'prog-mode-hook 'nlinum-mode)
-  )
+  (setq nlinum--width 4))
 
 ;; nyan-mode: a cute cat with rainbow tail in mode line, indicating the position of the content
 (use-package nyan-mode
@@ -27,13 +25,7 @@
   :init
   ;; (setq mode-line-format (list '(:eval (list (nyan-create)))))
   (setq nyan-animate-nyancat t)
-  (nyan-mode 1)
-  )
-
-;; beacon: highlight cursor line
-(use-package beacon
-  :defer t
-  :init (beacon-mode 1))
+  (nyan-mode 1))
 
 ;; all-the-icons
 ;; Need to run M-x all-the-icons-install-fonts after all-the-icons being installed
@@ -62,8 +54,7 @@
   ;; (setq doom-modeline-env-ruby-executable "ruby")
   ;; (setq doom-modeline-env-go-executable "go")
   (setq doom-modeline-env-load-string "...")
-  (doom-modeline-mode 1)
-  )
+  (doom-modeline-mode 1))
 
 ;; dir tree
 (use-package neotree
@@ -75,7 +66,7 @@
 ;; all-the-icons for dir tree
 (use-package all-the-icons-dired
   :after (all-the-icons neotree)
-  :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+  :hook ((dired-mode) . all-the-icons-dired-mode))
 
 ;; dashboard
 (use-package dashboard

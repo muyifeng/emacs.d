@@ -24,10 +24,10 @@
          ("M-l" . forward-char)
          ("M-S-l" . end-of-buffer)
          ("M-/" . comment-or-uncomment-region-or-line))
+  :hook (emacs-startup)
   :init
   (setq ergoemacs-theme nil)
-  (setq ergoemacs-keyboard-layout "us")
-  (add-hook 'emacs-startup-hook #'ergoemacs-mode))
+  (setq ergoemacs-keyboard-layout "us"))
 
 (provide 'init-ergoemacs)
 

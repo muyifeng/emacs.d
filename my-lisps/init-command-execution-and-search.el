@@ -67,10 +67,11 @@
 ;; all-the-icons-ivy
 (use-package all-the-icons-ivy
   :after (counsel counsel-projectile)
-  :config
+  :hook ((after-init) . all-the-icons-ivy-setup)
+  :init
   (setq all-the-icons-ivy-file-commands
         '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile counsel-projectile-find-file counsel-projectile-find-dir))
-  (add-hook 'after-init-hook 'all-the-icons-ivy-setup))
+  )
 
 ;; imenu-anywhere
 (use-package imenu-anywhere
