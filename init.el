@@ -48,10 +48,10 @@
 (require 'init-themes)
 (require 'init-appearance)
 (require 'init-exec-path)
-(require 'init-ergoemacs)
-(require 'init-common-editing)
 (require 'init-project-and-navigation) ;; must comes after command-execution-and-search as it has dependency on ivy
 (require 'init-command-execution-and-search) ;; use ivy and swiper instead of ido and isearch
+(require 'init-ergoemacs)
+(require 'init-common-editing)
 (require 'init-auto-completion)
 (require 'init-syntax-checking)
 ;; (require 'init-ruby-development)

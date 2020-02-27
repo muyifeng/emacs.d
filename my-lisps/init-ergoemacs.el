@@ -7,21 +7,27 @@
 
 ;;; Code:
 
+;; comment-or-uncomment-region-or-line
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)))
+
 ;; ergoemacs-mode
 (use-package ergoemacs-mode
-  :bind (
-         ;; bind M-S-j to move to beginning of buffer
+  :bind (("M-j" . backward-char)
          ("M-S-j" . beginning-of-buffer)
-         ;; ([remap ergoemacs-backward-open-bracket] . beginning-of-buffer)
-         ;; bind M-S-l to move to end of buffer
-         ("M-S-l" . end-of-buffer))
-         ;; ([remap ergoemacs-forward-close-bracket] . end-of-buffer))
+         ("M-l" . forward-char)
+         ("M-S-l" . end-of-buffer)
+         ("M-/" . comment-or-uncomment-region-or-line))
   :init
   (setq ergoemacs-theme nil)
   (setq ergoemacs-keyboard-layout "us")
-  :config
-  (ergoemacs-mode 1)
-  (global-set-key (kbd "M-/") 'comment-or-uncomment-region-or-line))
+  (add-hook 'emacs-startup-hook #'ergoemacs-mode))
 
 (provide 'init-ergoemacs)
 
